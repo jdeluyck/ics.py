@@ -458,6 +458,7 @@ class Event(Component):
 def rrule(event, line):
     event.rrule = unescape_string(line.value) if line else None
 
+
 @Event._extracts('DTSTAMP')
 def created(event, line):
     if line:
@@ -592,10 +593,12 @@ def o_end(event, container):
     if event.begin and event._end_time:
         container.append(ContentLine('DTEND', value=arrow_to_iso(event.end)))
 
+
 @Event._outputs
 def o_rrule(event, container):
     if event.rrule:
         container.append(ContentLine('RRULE', value=event.rrule))
+
 
 @Event._outputs
 def o_summary(event, container):
