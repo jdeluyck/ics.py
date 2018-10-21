@@ -139,7 +139,7 @@ class Event(Component):
                 rrule_str += ';' if rrule_str else ''
                 rrule_str += '{}={}'.format(str(key).upper(), rvalue)
 
-         self._rrule = rrule_str
+        self._rrule = rrule_str
 
     @property
     def begin(self):
